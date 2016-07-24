@@ -31,7 +31,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
 
-    //BIBLIOTECAS IMPORTADAS
+    //BIBLIOTECAS IMPORTADAS : LINK >> https://android-arsenal.com/details/1/2814
     compile 'com.github.Aspsine:MultiThreadDownload:d975efebff'
 
 
