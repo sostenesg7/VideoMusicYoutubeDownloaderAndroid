@@ -1,6 +1,8 @@
 package com.gomes.sostenes.videomusicyoutubedownloaderandroid.Downloads;
 
 import com.gomes.sostenes.videomusicyoutubedownloaderandroid.MediaAV;
+import com.gomes.sostenes.videomusicyoutubedownloaderandroid.NotificationAV;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -54,7 +56,7 @@ public class DonwloadInfoAV {
                 downloadMedia = getMedia(downloadUrl);
 
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             try {
@@ -67,16 +69,27 @@ public class DonwloadInfoAV {
 
 
 	private static String getMp3DownloadUrl(String body){
-		int start =  body.toString().indexOf("/download/get/?i=");
-        String link = body.toString().substring(start,start + 200);
-        return "http://www.youtubeinmp3.com" + link.substring(0, link.indexOf("\"><i"));
+
+        String url = null;
+
+        try {
+            int start = body.toString().indexOf("/download/get/?i=");
+            String link = body.toString().substring(start, start + 200);
+            url = "http://www.youtubeinmp3.com" + link.substring(0, link.indexOf("\"><i"));
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return url;
 	}
 
     private static MediaAV getMedia(String url){
         HttpURLConnection connection = null;
         String fileName = "";
+
         try {
             connection = (HttpURLConnection) new URL(url).openConnection();
+
+            NotificationAV.getInstance().newNotification(2, "Convertendo", "Aguarde");
 
             while (connection.getContentType().equals("text/html")) {
                 System.out.println(">>> TEXTO");
@@ -95,6 +108,7 @@ public class DonwloadInfoAV {
                     .replaceAll("[^\\p{ASCII}]", "");
 
         }catch (Exception ex){
+            ex.printStackTrace();
             return null;
         }finally {
             try {

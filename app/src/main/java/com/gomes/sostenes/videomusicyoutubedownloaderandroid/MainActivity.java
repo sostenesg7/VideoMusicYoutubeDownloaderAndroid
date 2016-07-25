@@ -8,10 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
+import com.gomes.sostenes.videomusicyoutubedownloaderandroid.Downloads.DonwloadInfoAV;
 import com.gomes.sostenes.videomusicyoutubedownloaderandroid.Downloads.DownloadManagerAV;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText edtLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        this.edtLink = (EditText) findViewById(R.id.editText);
+
+        NotificationAV.init(getApplicationContext());
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
                 DownloadManagerAV downloadManagerAV = new DownloadManagerAV(getApplicationContext());
 
-                downloadManagerAV.newDownload("https://www.youtube.com/watch?v=KaqM5DpQ0Ec");
+                downloadManagerAV.newDownload(edtLink.getText().toString(), DonwloadInfoAV.FORMAT_MP3);
 
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
