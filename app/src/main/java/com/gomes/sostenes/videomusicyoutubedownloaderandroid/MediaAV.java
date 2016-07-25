@@ -6,9 +6,13 @@ package com.gomes.sostenes.videomusicyoutubedownloaderandroid;
 public class MediaAV {
     private String url;
     private String fileName;
-    private int duration;
 
     public MediaAV() {
+    }
+
+    public MediaAV(String url, String fileName) {
+        this.url = url;
+        this.fileName = fileName;
     }
 
     public String getUrl() {
@@ -27,11 +31,4 @@ public class MediaAV {
         this.fileName = fileName;
     }
 
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
 }

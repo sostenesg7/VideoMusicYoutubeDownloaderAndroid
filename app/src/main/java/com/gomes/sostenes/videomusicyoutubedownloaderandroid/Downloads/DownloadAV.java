@@ -10,6 +10,7 @@ public class DownloadAV {
     public static int STATUS_STOPPED     = 0;
     public static int STATUS_DOWNLOADING = 1;
     public static int STATUS_PAUSED      = 2;
+    public static int STATUS_DOWNLOADED  = 3;
 
     private int fileTotalSize;
     private int fileDownloadedSize;

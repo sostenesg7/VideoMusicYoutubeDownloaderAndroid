@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/VideoMusicYoutubeDownloaderAndroid.iml" filepath="$PROJECT_DIR$/.idea/VideoMusicYoutubeDownloaderAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VideoMusicYoutubeDownloaderAndroid.iml" filepath="$PROJECT_DIR$/VideoMusicYoutubeDownloaderAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
